@@ -2,10 +2,11 @@
  * 본예제는 LED 포트번호가 순차정렬이 되어있다는 가정하에 주석을 이해하기 쉽게
  * 1234포트의 LED를 사용한다는 가정하에 주석을 사용하였습니다.
  */
+ 
 int pinLED[] = {0,1,2,3}; //LED 포트 번호
 int k;
 int dTime = 1000; //딜레이 타임
-int forLast = 3; // 연결되어있는 LED 개수 -1 (pinLED.length-1)
+int forLast = (sizeof(pinLED)-1)/sizeof(char *); // 연결되어있는 LED 개수 -1 (pinLED.length-1)
 int half = forLast/2; // HOW RO USE FLOOR?? // LED개수의 반
 
 void setup() {

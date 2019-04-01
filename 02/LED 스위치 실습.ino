@@ -20,16 +20,17 @@ void loop() {
       sw_in[i] = digitalRead(sw[i]);
     }
     for(int k = 0 ; k < 4 ; k++){
-      if(sw_in[i]){
+      if(k == 0 && sw_in[i]){
+        //여기안에서 for문 ...?
         step01(k);
-      }else if(digitalRead(sw[1])){
+      }else if(k == 0 && sw_in[i]){
         step02(k);
       }else if(digitalRead(sw[2])){
         step03(k);
       }else if(digitalRead(sw[3])){
         step04(k);
       }
-}
+    }
   }
 }
 

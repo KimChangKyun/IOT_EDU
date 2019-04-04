@@ -15,23 +15,27 @@ void setup() {
 
 //digitalRead(sw[i]) == (0:1)
 void loop() {
-  for(int i = 0 ; i < 4 ; i++){
-    for(int sw_i = 0; sw_i < 4 ; sw_i++ ){
-      sw_in[i] = digitalRead(sw[i]);
+    for(int sw_i = 0; sw_i < 4 ; sw_i++){
+      sw_in[sw_i] = digitalRead(sw[sw_i]);
     }
-    for(int k = 0 ; k < 4 ; k++){
-      if(k == 0 && sw_in[i]){
-        //여기안에서 for문 ...?
-        step01(k);
-      }else if(k == 0 && sw_in[i]){
-        step02(k);
-      }else if(digitalRead(sw[2])){
-        step03(k);
-      }else if(digitalRead(sw[3])){
-        step04(k);
+    if(sw_in[0]){
+      //여기안에서 for문 ...?
+      for(int j = 0; j < 4 ; j++){
+        step01(j);
+      }
+    }else if(sw_in[1]){
+      for(int j = 0; j < 4 ; j++){
+        step02(j);
+      }
+    }else if(sw_in[2]){
+      for(int j = 0; j < 4 ; j++){
+        step03(j);
+      }
+    }else if(sw_in[3]){
+      for(int j = 0; j < 4 ; j++){
+        step04(j);
       }
     }
-  }
 }
 
 /* 
@@ -100,8 +104,7 @@ void step03(int pin){
 void step04(int pin){
    digitalWrite(pinLED[pin],HIGH);
     delay(dTime);
-    digitalWrite(pinLED[pin],LOW);
-    delay(dTime);  
+    digitalWrite(pinLED[pin],LOW);  
 }
 
 /* 

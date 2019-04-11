@@ -14,7 +14,7 @@ void setup() {
 void loop() {
   int  playT = 250;   // 1박자를 0.5초
   for (int m = 0; m < mSize; m++) {
-    if(mData[m] == ''){continue;}
+    if(mData[m] == ' '){continue;}
       for(int k = 0; k < 7; k++) {
           if( mData[m] == code[k] ) {        // 배열 mData[]의 문자와 배열 code[] 의 문자 비교하여 인텍스 k 검색
                 tone(pinNum, freq[k], playT * (int)mData[m+1]);

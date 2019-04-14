@@ -1,7 +1,8 @@
 
 char code[ ] = {/*도*/'C',/*레*/'D',/*미*/'E',/*파*/'F',/*솔*/'G',/*라*/'A',/*시*/'B',/*도*/'Z'};
 unsigned int  freq[ ] = {262, 294, 330, 349, 392, 440, 494, 523};
-char mData[ ] = "G4E2E2G2E2C4 D4E2D2C2E2G4 Z2G2Z2G2Z2G2E4 G4D2F2E2D2C4";
+char mData[ ] = "GEEGECDEDCEGZGZGZGEGDFEDC";
+int mBData[ ] = {4,2,2,2,2,4,4,2,2,2,2,4,2,2,2,2,2,2,4,4,2,2,2,2,4};
 int pinNum = 7;
 const byte mSize = sizeof(mData);
 const byte fSize = sizeof(freq);
@@ -14,12 +15,10 @@ void setup() {
 void loop() {
   int  playT = 250;   // 1박자를 0.5초
   for (int m = 0; m < mSize; m++) {
-    if(mData[m] == ' '){continue;}
-      for(int k = 0; k < 7; k++) {
+      for(int k = 0; k < 8; k++) {
           if( mData[m] == code[k] ) {        // 배열 mData[]의 문자와 배열 code[] 의 문자 비교하여 인텍스 k 검색
-                tone(pinNum, freq[k], playT * (int)mData[m+1]);
-                delay(playT * (int)mData[m+1]);                 // 1박자 연주
-                m++;
+                tone(pinNum, freq[k], playT * mBData[m]);
+                delay(playT * mBData[m]);                 // 1박자 연주
           }
       }
   }

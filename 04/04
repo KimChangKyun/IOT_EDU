@@ -20,26 +20,25 @@ void setup() {
 }
 
 void loop() {
- 
   int val1 = analogRead(2); // 아날로그입력 2번을 통하여 입력된 전압값을
                             // 0~1023범위의 값으로 읽어 val1에 저장
-  int val2 = map(val, 0, 1023, 0, 255); // 0~1023범위의 val값을 0~255 범위로 변환
+  int val2 = map(val1, 0, 1023, 0, 255); // 0~1023범위의 val값을 0~255 범위로 변환
 
   step01(val1,val2);
   //step02(val1);
-                   // LCD화면 지우기
+                  
 }
 
-void step01(val1, val2){
-    lcd.setCursor(0,0);           // lcd.setCursor(6,0);
-    lcd.print("val1 = " + val1);      // "Cursor OFF" 출력
-    lcd.setCursor(0,1);           // lcd.setCursor(6,0);
-    lcd.print("val2 = " + val2);      // "Cursor OFF" 출력
-    lcd.clear();
+void step01(int val1, int val2){
+    lcd.setCursor(0,0);           // lcd.setCursor(0,0);
+    lcd.print("val1 = " + val1);      // "저항값" 출력
+    lcd.setCursor(0,1);           // lcd.setCursor(0,1);
+    lcd.print("val2 = " + val2);      // "저항값 0 ~ 255" 출력
+    lcd.clear();  // LCD화면 지우기
 }
 
-void step02(val1){          
-  analogWrite(pwdOut, val);     // PWM 신호로 출력
+void step02(int val1){          
+  analogWrite(pwdOut, val1);     // PWM 신호로 출력
 
   if(val1 >= 0 && val1 <= 204){
     digitalWrite(pinLED[0],LOW);

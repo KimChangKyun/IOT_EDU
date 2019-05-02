@@ -31,17 +31,17 @@ void loop() {
       delay(100); 
     }else if(distance >= 11 && distance <= 20){
       tone(soundPin, freq[1] , playTime); //
-    }else if(distance >= 21 && distance <= 10){
+    }else if(distance >= 21 && distance <= 30){
       tone(soundPin, freq[2] , playTime); //
-    }else if(distance >= 31 && distance <= 10){
+    }else if(distance >= 31 && distance <= 40){
       tone(soundPin, freq[3] , playTime); //
-    }else if(distance >= 41 && distance <= 10){
+    }else if(distance >= 41 && distance <= 50){
       tone(soundPin, freq[4] , playTime); //
-    }else if(distance >= 51 && distance <= 10){
+    }else if(distance >= 51 && distance <= 60){
       tone(soundPin, freq[5] , playTime); //
-    }else if(distance >= 71 && distance <= 10){
+    }else if(distance >= 61 && distance <= 70){
       tone(soundPin, freq[6] , playTime); //
-    }else if(distance >= 81 && distance <= 10){
+    }else if(distance >= 71 && distance <= 80){
       tone(soundPin, freq[7] , playTime); //
     }
 }

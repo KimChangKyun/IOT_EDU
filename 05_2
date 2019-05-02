@@ -2,8 +2,8 @@ int ECHO_pin = 7;     // 반사 신호 수신 핀
 int TRIG_pin = 8;     // 트리거 신호 발생 핀 
 int time; 
 unsigned int  freq[ ] = {262, 294, 330, 349, 392, 440, 494, 523}; //각 코드에 대한 값
-
-int soundPin = pinNum;
+int playTime = 1000;
+int soundPin = 12;
 
 void setup( ){
     pinMode(ECHO_pin, INPUT);   // 반사 신호 수신 핀 입력모드 설정
@@ -27,20 +27,21 @@ void loop() {
     //Serial.println(pwmVal);
     delay(100); 
     if(distance >= 0 && distance <= 10){
-      tone(soundPin, freq[0] , 1000); //
+      tone(soundPin, freq[0] , playTime); //
+      delay(100); 
     }else if(distance >= 11 && distance <= 20){
-      tone(soundPin, freq[1] , 1000); //
+      tone(soundPin, freq[1] , playTime); //
     }else if(distance >= 21 && distance <= 10){
-      tone(soundPin, freq[2] , 1000); //
+      tone(soundPin, freq[2] , playTime); //
     }else if(distance >= 31 && distance <= 10){
-      tone(soundPin, freq[3] , 1000); //
+      tone(soundPin, freq[3] , playTime); //
     }else if(distance >= 41 && distance <= 10){
-      tone(soundPin, freq[4] , 1000); //
+      tone(soundPin, freq[4] , playTime); //
     }else if(distance >= 51 && distance <= 10){
-      tone(soundPin, freq[5] , 1000); //
+      tone(soundPin, freq[5] , playTime); //
     }else if(distance >= 71 && distance <= 10){
-      tone(soundPin, freq[6] , 1000); //
+      tone(soundPin, freq[6] , playTime); //
     }else if(distance >= 81 && distance <= 10){
-      tone(soundPin, freq[7] , 1000); //
+      tone(soundPin, freq[7] , playTime); //
     }
 }
